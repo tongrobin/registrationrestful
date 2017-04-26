@@ -1,0 +1,99 @@
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>Assginment</title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+   
+    <script src="controller.js"></script>
+    
+
+
+</head>
+<body ng-controller="assginmentController">
+ 
+    <label>{{weatherdata}}</label>
+    <table width="100%" border="0" cellpadding="2" cellspacing="2">
+      <td colspan="3" align="left" valign="middle" bgcolor="#0000FF"><div style="margin:0px 10px; font-weight:bold; color:#0F0; font-size:16px; text-align:center">
+          Register Form
+      </td>
+            </tr>
+            <tr>
+              <td colspan="3" align="left" valign="middle"></td>
+            </tr>
+	<div id="theForm">
+	    
+  
+	        <tr>
+	        <td width="13%" align="left" valign="middle"><strong>Username</strong></td> 
+	        <td width="2%" align="left" valign="middle">:</td>
+	        <td width="85%" align="left" valign="middle">
+	        <input type="text" ng-model="username"></td>
+	        </tr>
+	        
+	        <tr>
+	        <td width="13%" align="left" valign="middle"><strong>Name</strong></td> 
+	        <td width="2%" align="left" valign="middle">:</td>
+	        <td width="85%" align="left" valign="middle">
+	        <input type="text" ng-model="name"><br /></td>
+	        </tr>
+	        
+	        <tr>
+	        <td width="13%" align="left" valign="middle"><strong>Email address</strong></td> 
+	        <td width="2%" align="left" valign="middle">:</td>
+	        <td width="85%" align="left" valign="middle">
+	        <input type="text" ng-model="email"></td>
+	        </tr>
+	        
+	        <tr>
+	        <td width="13%" align="left" valign="middle"><strong>Password</strong></td> 
+	        <td width="2%" align="left" valign="middle">:</td>
+	        <td width="85%" align="left" valign="middle">
+	        <input type="password" ng-model="password"></td>
+	        </tr>
+	        
+	        <tr>
+	        <td width="13%" align="left" valign="middle"><strong>Age</strong></td>
+	        <td width="2%" align="left" valign="middle">:</td>
+	        <td width="85%" align="left" valign="middle">
+	        <input type="number" ng-model="age"></td>
+	        </tr>
+	</div>
+            <tr>
+            <td align="left" valign="middle">
+		    <button ng-click="register()">Register</button></td>
+		    </tr>
+
+
+	<div>
+	    <button ng-click="average()">Show users average age</button><br />
+	    <button ng-click="sortbyname()">Sorting by name</button>
+	    <button ng-click="sortbyage()">Sorting by age</button><br />
+	    
+	    <select ng-model="filtertype">
+	    	<option value="clear">Origin</option>
+		    <option value="lessthan">Less or equal</option>
+		    <option value="greaterthan">More or equal</option>
+	    </select>
+	    <input type=number ng-model="filterage" placeholder="Enter the age" ng-show="checked">
+
+	</div>
+	    <div id="output"></div>
+ 
+
+
+    <table>
+    	<h2>Current user: </h2>
+    	<tr ng-repeat="user in users | filter: filtering('Age', filterage)">
+    		<td>Username : {{user.username}}</td>
+    		<td>&nbsp;Name : {{user.Name}}</td>
+    		<td>&nbsp;Age : {{user.Age}}</td>
+    	</tr>
+    </table>
+    
+    
+</table>
+</body>
+</html>
+
