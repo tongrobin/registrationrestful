@@ -5,6 +5,8 @@ myApp.controller('assginmentController', function ($scope, $http, $interval) {
                 var myDataRef = new Firebase('https://user-33949.firebaseio.com/');
                 var weather = 'https://api.wunderground.com/api/96d1c5baf995855f/conditions/q/HK/Central District.json';
                 
+            
+                
                 var dataArray = [];
                 var arrayLength = 0;
                 
@@ -21,7 +23,7 @@ myApp.controller('assginmentController', function ($scope, $http, $interval) {
                 
                 stop = $interval(function() {
                     getCurrentWeath();
-                    console.log('ggop')
+                    console.log('ｏｍｇ')
                 }, 4000);
                 
                 getCurrentWeath();
